@@ -51,7 +51,13 @@ const Home = () => {
               <span className="block">Find Reliable Workers</span>
               <span className="block text-blue-600">In Your Neighborhood</span>
             </h1>
+
+            <p className="mt-4 max-w-2xl mx-auto text-base text-gray-500 sm:text-lg md:text-xl">
+              FixNearby connects you with trusted electricians, plumbers, carpenters, and more. Fast, secure, and hassle-free.
+            </p>
+
             <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+              
               <Link
                 to="/services"
                 className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition"
@@ -65,11 +71,25 @@ const Home = () => {
               >
                 Join as a Worker
               </Link>
+
             </div>
+            <div>10,000+ Users</div>
+            <div>Verified Professionals</div>
           </div>
+
         </div>
       </div>
 
+      {/* How It Works */}
+      <div className="py-20">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            How It Works
+          </h2>
+          <p className="text-gray-500 mb-16">
+            Get your job done in 3 simple steps
+          </p>
       {/* ── Near You Section ── */}
       {(geoLoading || coords || geoError) && (
         <div className="py-20 bg-gradient-to-br from-blue-50 via-white to-green-50">
@@ -207,12 +227,37 @@ const Home = () => {
                 2
               </div>
 
-              <h3 className="text-xl font-semibold mb-2">Book</h3>
-              <p className="text-gray-500">
-                Schedule an appointment that fits your busy life instantly.
-              </p>
-            </div>
+          <div className="grid md:grid-cols-3 gap-10">
 
+            {[
+              {
+                step: "1",
+                title: "Search",
+                desc: "Find nearby professionals based on skills, ratings, and location.",
+                color: "blue"
+              },
+              {
+                step: "2",
+                title: "Book",
+                desc: "Choose a time slot and confirm your booking instantly.",
+                color: "green"
+              },
+              {
+                step: "3",
+                title: "Relax",
+                desc: "Sit back while the expert completes your task efficiently.",
+                color: "yellow"
+              }
+            ].map((item, i) => (
+
+              <div key={i} className="p-8 rounded-2xl border hover:shadow-xl transition group">
+
+                <div className={`w-14 h-14 mx-auto mb-5 rounded-full flex items-center justify-center text-white text-lg font-bold bg-${item.color}-500 group-hover:scale-110 transition`}>
+                  {item.step}
+                </div>
+
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-gray-500">{item.desc}</p>
             {/* Step 3 */}
             <div className="relative p-8 border border-gray-100 rounded-2xl bg-white shadow-sm hover:shadow-xl transition group">
 
@@ -220,15 +265,9 @@ const Home = () => {
                 3
               </div>
 
-              <div className="w-14 h-14 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-5 text-lg font-bold group-hover:scale-110 transition">
-                3
               </div>
 
-              <h3 className="text-xl font-semibold mb-2">Relax</h3>
-              <p className="text-gray-500">
-                Let the expert handle the job while you enjoy peace of mind.
-              </p>
-            </div>
+            ))}
 
           </div>
         </div>
@@ -237,32 +276,43 @@ const Home = () => {
       {/* Popular Categories */}
       <div className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
           <h2 className="text-4xl font-extrabold text-gray-900 mb-10 text-center">
             Popular Categories
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { name: 'Electrician', icon: '⚡' },
-              { name: 'Plumber', icon: '🚿' },
-              { name: 'Carpenter', icon: '🔨' },
-              { name: 'Cleaning', icon: '🧹' },
-              { name: 'Painting', icon: '🎨' },
-              { name: 'AC Repair', icon: '❄️' },
-              { name: 'Pest Control', icon: '🐛' },
-              { name: 'Moving', icon: '🚚' }
-            ].map(({ name, icon }, idx) => (
+            {['Electrician', 'Plumber', 'Carpenter', 'Cleaning', 'Painting', 'AC Repair', 'Pest Control', 'Moving'].map((category, idx) => (
+              
               <Link
                 key={idx}
                 to="/services"
-                className="group bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center hover:border-blue-500 hover:text-blue-600 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
+                className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center hover:border-blue-500 hover:text-blue-600 hover:shadow-md transition"
               >
                 <div className="text-3xl mb-3">{icon}</div>
                 <span className="font-medium text-lg">{name}</span>
               </Link>
             ))}
           </div>
+
         </div>
+      </div>
+
+      {/* Final CTA Section */}
+      <div className="py-20 bg-blue-600 text-center text-white">
+        <h2 className="text-3xl font-bold mb-4">
+          Need Help Today?
+        </h2>
+        <p className="mb-6 text-blue-100">
+          Book trusted professionals instantly and get your job done without hassle.
+        </p>
+
+        <Link
+          to="/services"
+          className="bg-white text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition"
+        >
+          Get Started
+        </Link>
       </div>
 
     </div>
