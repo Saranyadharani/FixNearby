@@ -68,32 +68,37 @@ const Home = () => {
 
       {/* ── Hero ── */}
       <div className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="text-center">
-            <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl leading-tight">
-              <span className="block">Find Reliable Workers</span>
-              <span className="block text-blue-600">In Your Neighborhood</span>
-            </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-base text-gray-500 sm:text-lg md:text-xl">
-              FixNearby connects you with trusted electricians, plumbers, carpenters, and more. Fast, secure, and hassle-free.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition"
-              >
-                Browse Services
-              </Link>
-              <Link
-                to="/register"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg text-blue-600 bg-white border border-gray-200 hover:bg-gray-50 shadow-sm hover:shadow-md transition"
-              >
-                Join as a Worker
-              </Link>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 text-center">
+          <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl leading-tight">
+            <span className="block">Find Reliable Workers</span>
+            <span className="block text-blue-600">In Your Neighborhood</span>
+          </h1>
+
+          <p className="mt-4 max-w-2xl mx-auto text-base text-gray-500 sm:text-lg md:text-xl">
+            FixNearby connects you with trusted electricians, plumbers, carpenters, and more. Fast, secure, and hassle-free.
+          </p>
+
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+            <Link
+              to="/services"
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition"
+            >
+              Browse Services
+            </Link>
+            <Link
+              to="/register"
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg text-blue-600 bg-white border border-gray-200 hover:bg-gray-50 shadow-sm hover:shadow-md transition"
+            >
+              Join as a Worker
+            </Link>
+          </div>
+
+          <div className="mt-10 flex justify-center items-center gap-8 text-gray-400 text-sm font-semibold">
+            <div className="flex items-center gap-2">
+              <span className="text-blue-600 text-lg">✓</span> 10,000+ Users
             </div>
-            <div className="mt-6 flex justify-center gap-8 text-sm text-gray-500 font-medium">
-              <span>10,000+ Users</span>
-              <span>Verified Professionals</span>
+            <div className="flex items-center gap-2">
+              <span className="text-blue-600 text-lg">✓</span> Verified Professionals
             </div>
           </div>
         </div>
@@ -101,7 +106,7 @@ const Home = () => {
 
       {/* ── Near You ── */}
       {(geoLoading || coords || geoError) && (
-        <div className="py-20 bg-gradient-to-br from-blue-50 via-white to-green-50">
+        <div className="py-20 bg-gradient-to-br from-blue-50 via-white to-green-50 border-y border-blue-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
